@@ -17,8 +17,14 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
-	background: var(--light-color);
+	background-image: url('/img/teamchat.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: bisque;
 	margin: 20px;
+	widows: 100%;
+	height: 100vh;
+	overflow: hidden;
 }
 
 ul {
@@ -41,7 +47,7 @@ a {
 /* Chat Page */
 
 .chat-container {
-	max-width: 1100px;
+	max-width: 60vw;
 	background: #fff;
 	margin: 30px auto;
 	overflow: hidden;
@@ -60,7 +66,7 @@ a {
 
 .chat-main {
 	display: grid;
-	grid-template-columns: 1fr 3fr;
+	grid-template-columns: 200px 1fr;
 }
 
 .chat-sidebar {
@@ -84,6 +90,9 @@ a {
 .chat-sidebar ul li {
 	padding: 10px 0;
 }
+.chat-sidebar ul li span {
+	color: #59ed4f;
+}
 
 .chat-messages {
 	padding: 30px;
@@ -96,6 +105,7 @@ a {
 	margin-bottom: 15px;
 	background-color: var(--light-color);
 	border-radius: 5px;
+	word-wrap: break-word;
 }
 
 .chat-messages .message .meta {
@@ -129,21 +139,21 @@ a {
 /* Join Page */
 .join-container {
 	max-width: 500px;
-	margin: 80px auto;
+	margin: 90px auto;
 	color: #fff;
 }
 
 .join-header {
 	text-align: center;
 	padding: 20px;
-	background: var(--dark-color-a);
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
 }
 
 .join-main {
 	padding: 30px 40px;
-	background: var(--dark-color-b);
+	background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
 
 .join-main p {
@@ -176,14 +186,53 @@ a {
 .join-main .btn {
 	margin-top: 20px;
 	width: 100%;
+	background-color: #dcd9d4;
+	background-image: linear-gradient(
+			to bottom,
+			rgba(255, 255, 255, 0.5) 0%,
+			rgba(0, 0, 0, 0.5) 100%
+		),
+		radial-gradient(
+			at 50% 0%,
+			rgba(255, 255, 255, 0.1) 0%,
+			rgba(0, 0, 0, 0.5) 50%
+		);
+	background-blend-mode: soft-light, screen;
 }
 
 @media (max-width: 700px) {
 	.chat-main {
-		display: block;
+		grid-template-columns: 1fr;
 	}
 
 	.chat-sidebar {
-		display: none;
+		padding: 5px 5px 15px;
+		overflow-y: scroll;
+	}
+	.chat-sidebar h3,
+	h2 {
+		margin: 5px;
+	}
+	#room-name {
+		margin: 5px;
+	}
+	.chat-container {
+		max-width: 90vw;
+		background: #fff;
+		margin: 15px auto;
+	}
+	.chat-sidebar ul {
+		padding: 5px 0;
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+	.chat-sidebar ul li {
+		margin-left: 25px;
+	}
+	.chat-messages {
+		padding: 20px;
+		max-height: 300px;
+		overflow-y: scroll;
 	}
 }
